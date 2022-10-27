@@ -4,6 +4,14 @@
 
 <mapper namespace="com.example.todoserver.mapper.TodoMapper">
     <select id="getTime" resultType="java.lang.String">
-        select now();
+        select now()
     </select>
+
+    <select id="todoList" resultType="com.example.todoserver.domain.Todo">
+        select * from todoSB
+    </select>
+
+    <insert id="todoInput">
+        insert into todoSB (title, memo) values (#{title}, #{memo})
+    </insert>
 </mapper>
